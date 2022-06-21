@@ -9,8 +9,8 @@ namespace DevBot.Helpers
 {
     public static class ConfigHelper
     {
-        private static IConfigurationRoot config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
-        private static IConfigurationProvider secretProvider = config.Providers.First();
+        private static readonly IConfigurationRoot config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
+        private static readonly IConfigurationProvider secretProvider = config.Providers.First();
 
         public static T GetSecuredConfigValue<T>(string key)
         {
